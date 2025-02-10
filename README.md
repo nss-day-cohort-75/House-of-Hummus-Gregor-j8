@@ -56,10 +56,17 @@ sequenceDiagram
 > 🧨 Before you click the "Assessment Complete" button on the Learning Platform, add your answers below for each question and make a commit. It is your option to request a face-to-face meeting with a coach for a vocabulary review.
 
 1. Should transient state be represented in a database diagram? Why, or why not?
-   > Your answer here
+
+   > I believe that transient state should not be represented in the diagram being it is only temporary data
+
 2. In the **FoodTruck** module, you are **await**ing the invocataion of all of the component functions _(e.g. sales, veggie options, etc.)_. Why must you use the `await` keyword there? Explain what happens if you remove it.
-   > because it is waiting to get the value from the fetch call if you  object promise 
+
+   > Since the code is waiting for the value from the fetch call if you remove the await, it will return a promise object because the value you're looking for hasn't arrived yet. By using await you ensure the code waits for the fetch call to complete before passing the value
+
 3. When the user is making choices by selecting radio buttons, explain how that data is retained so that the **Purchase Combo** button works correctly.
-   > Your answer here
+
+   > You can use a change event listener to detect when the radio button is changed and store the value from that event listener. Pass these values into transient state, updating the ID that matches. Then when the Purchase Combo button is clicked, invoke the placeOrder function that adds the data to the database 
+
 4. You used the `map()` array method in the self assessment _(at least, you should have since it is a learning objective)_. Explain why that function is helpful as a replacement for a `for..of` loop.
-   > the map method is easier to read and is more concise. Map also makes a copy of the array so that you can iterate through a copy ins
+
+   > The map method is easier to read and more concise. It also creates a copy of the array, allowing you to iterate through a copy
