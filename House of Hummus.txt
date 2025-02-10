@@ -1,0 +1,30 @@
+title House of hummus 
+
+participant entrees
+participant foodtruck
+participant sales
+participant sideDishes
+participant Vegetable
+participant main
+participant transientState
+
+
+
+entrees<-foodtruck:requested data from entress 
+entrees->foodtruck:sent data to render HTML
+
+
+foodtruck->sideDishes:requested data from side dishes
+foodtruck<-sideDishes:sent data to render HTMl
+foodtruck->Vegetable:requested data from vegetable
+foodtruck<-Vegetable:sent back Html data
+foodtruck<-main:request data from food truck
+foodtruck->foodtruck:renders html 
+SideDish, Vegetable, entrees -> transientState
+transientState -> sales
+foodtruck<-sales:adding orders Html\n
+foodtruck->main:sent data to render html
+
+
+
+foodtruck->main:adding orders HTML

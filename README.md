@@ -58,8 +58,8 @@ sequenceDiagram
 1. Should transient state be represented in a database diagram? Why, or why not?
    > Your answer here
 2. In the **FoodTruck** module, you are **await**ing the invocataion of all of the component functions _(e.g. sales, veggie options, etc.)_. Why must you use the `await` keyword there? Explain what happens if you remove it.
-   > Your answer here
+   > because it is waiting to get the value from the fetch call if you  object promise 
 3. When the user is making choices by selecting radio buttons, explain how that data is retained so that the **Purchase Combo** button works correctly.
    > Your answer here
 4. You used the `map()` array method in the self assessment _(at least, you should have since it is a learning objective)_. Explain why that function is helpful as a replacement for a `for..of` loop.
-   > Your answer here
+   > the map method is easier to read and is more concise. Map also makes a copy of the array so that you can iterate through a copy ins
