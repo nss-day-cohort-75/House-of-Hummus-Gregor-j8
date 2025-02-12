@@ -6,10 +6,11 @@ import { placeOrder } from "./transientState.js"
 
 
 export const FoodTruck = async () => {
-        const salesHTML =  await Sales()
+       
         const entreeItems = await entrees()
         const sideDishesItems = await sideDishes()
-        const vegetableItems = await veggies()
+        const vegetableItems = await veggies() 
+        const salesHTML =  await Sales()
         document.addEventListener("click", submitBtn)
 
     const html = `

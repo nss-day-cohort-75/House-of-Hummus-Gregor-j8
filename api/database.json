@@ -262,6 +262,24 @@
       "vegetableId": 7,
       "sideId": 5,
       "id": 23
+    },
+    {
+      "entreeId": 1,
+      "vegetableId": 5,
+      "sideId": 1,
+      "id": 24
+    },
+    {
+      "entreeId": 4,
+      "vegetableId": 2,
+      "sideId": 1,
+      "id": 25
+    },
+    {
+      "entreeId": 1,
+      "vegetableId": 1,
+      "sideId": 1,
+      "id": 26
     }
   ]
 }

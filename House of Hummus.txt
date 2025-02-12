@@ -1,30 +1,50 @@
-title House of hummus 
-
-participant entrees
-participant foodtruck
-participant sales
-participant sideDishes
-participant Vegetable
+title House of hummus
+participant User
 participant main
+
+participant foodtruck
 participant transientState
+participant entrees
+participant sideDishes
+participant vegetable
+participant sales
+
+participant database
 
 
 
-entrees<-foodtruck:requested data from entress 
-entrees->foodtruck:sent data to render HTML
 
 
-foodtruck->sideDishes:requested data from side dishes
-foodtruck<-sideDishes:sent data to render HTMl
-foodtruck->Vegetable:requested data from vegetable
-foodtruck<-Vegetable:sent back Html data
-foodtruck<-main:request data from food truck
-foodtruck->foodtruck:renders html 
-SideDish, Vegetable, entrees -> transientState
-transientState -> sales
-foodtruck<-sales:adding orders Html\n
-foodtruck->main:sent data to render html
+note over foodtruck:envokes function
+foodtruck<-main:Request data HTML
+foodtruck->entrees:requests data for entrees
+entrees->database:request for data from database
+entrees<-database:returns items for html
+foodtruck<-entrees:sends Html for entrees
+foodtruck->sideDishes:requests data for side dishes
+sideDishes->database:requests data from database
+sideDishes<-database:returns items for html
+foodtruck<-sideDishes:returns html for side dishes
+foodtruck->vegetable:requests data for vegetables
+vegetable->database:requests data from database
+vegetable<-database:returns data for html
+foodtruck<-vegetable:returns HTMl
+foodtruck->sales:requests data for sales
+sales->database:requests data from database
+sales<-database:returns data from database
+foodtruck<-sales:sends Html for sales
+User->entrees:clicked to update entrees
+transientState<-entrees:stores change in transient state
 
-
-
-foodtruck->main:adding orders HTML
+User->sideDishes:clicked to update side Dishes choice
+transientState<-sideDishes:stores change in transient state
+User->vegetable:user changed vegetable choice 
+transientState<-vegetable:updates transient state
+User->foodtruck:user purchases food sending data to database 
+foodtruck->transientState:requests data to be sent to database
+transientState->database:sends changed data to database
+sales->database:requests purchase data
+sales<-database:sends data that was updated in transient state 
+foodtruck<-sales:sends data of purchased food
+foodtruck->main:rendering HTML 
+note over main:reevokes function 

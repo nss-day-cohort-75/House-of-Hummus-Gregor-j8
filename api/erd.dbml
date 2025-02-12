@@ -21,3 +21,7 @@ table purchases {
     vegetablesId int [fk]
     entreesId int [fk]
 }
+
+Ref: purchases.sidesId > sides.id 
+Ref: purchases.vegetablesId > vegetables.id 
+Ref: purchases.entreesId > entrees.id 
